@@ -1,6 +1,9 @@
 - type: serial
   name: continuous delivery
   steps:
+    - name: run test
+      type: serial
+      command: {run-test-command}
     - name: push docker
       type: push
       service: app

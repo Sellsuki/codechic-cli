@@ -7,58 +7,70 @@ const { createInitFile } = require('./logic')
 
 program
   .version('0.0.1')
-  .description('testWrite CLI')
+  .description('Create init files to be deploy by Codeship pro.')
 
 const questions = [
   {
     type : 'input',
     name : 'containerPort',
     default: '80',
-    message : 'What your docker container port : '
+    message : 'What is your docker container port : '
   },
   {
     type : 'input',
     name : 'awsRgistry',
-    message : 'What your aws registry : '
+    message : 'What is your aws registry : '
   },
   {
     type : 'input',
     name : 'awsImageName',
-    message : 'What your aws image name : '
+    message : 'What is your aws image name : '
   },
   {
     type : 'input',
     name : 'applicationName',
-    message : 'What your eb application name :'
+    message : 'What is your eb application name :'
   },
   {
     type : 'input',
     name : 'applicationEnv',
-    message : 'What your eb iapplication env :'
+    message : 'What is your eb iapplication env :'
   },
   {
     type : 'input',
     name : 's3Bucket',
-    message : 'What your s3 bucket :'
+    message : 'What is your s3 bucket :'
   },
   {
     type : 'input',
     name : 'awsKeyEncryptPath',
     default: 'aws_credes.encrypted',
-    message : 'What your aws encrypted key file path :'
+    message : 'What is your aws encrypted key file path :'
   },
   {
     type : 'input',
     name : 'awsRegion',
     default: 'ap-southeast-1',
-    message : 'What your aws region :'
+    message : 'What is your aws region :'
+  },
+  {
+    type : 'input',
+    name : 'awsRegion',
+    default: 'ap-southeast-1',
+    message : 'What is your aws region :'
+  },
+  {
+    type : 'input',
+    name : 'testCommand',
+    default: 'npm run test',
+    message : 'What is your test command :'
   }
 ]
 
 program
 .command('init')
 .alias('i')
-.description('create a init file to be deploy by code ship pro')
+.description('Create init files to be deploy by Codeship pro.')
 .action(() => {
   prompt(questions).then(answers =>
     createInitFile(answers))

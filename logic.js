@@ -4,11 +4,10 @@ module.exports = {
 const { readFile,writeFile,makeDirectory } = require('./util')
 
 async function createInitFile (params) {
-  var deployScriptFile = readFile(__dirname + '/template_flie/aws_deployment')
-  var codeshipServiceFile = readFile(__dirname + '/template_flie/codeship-services.yml')
-  var codeshipStepFile = readFile(__dirname + '/template_flie/codeship-steps.yml')
-  var dockerRunFile = readFile(__dirname + '/template_flie/Dockerrun.aws.json')
-  console.log(params)
+  let deployScriptFile = readFile(__dirname + '/template_flie/aws_deployment')
+  let codeshipServiceFile = readFile(__dirname + '/template_flie/codeship-services.yml')
+  let codeshipStepFile = readFile(__dirname + '/template_flie/codeship-steps.yml')
+  let dockerRunFile = readFile(__dirname + '/template_flie/Dockerrun.aws.json')
 
   codeshipServiceFile = codeshipServiceFile.replace(/{aws-image-name}/g, params.awsImageName.trim())
   codeshipServiceFile = codeshipServiceFile.replace(/{aws-key-encrypt-path}/g, params.awsKeyEncryptPath.trim())
@@ -19,10 +18,11 @@ async function createInitFile (params) {
   codeshipStepFile = codeshipStepFile.replace(/{application-name}/g, params.applicationName.trim())
   codeshipStepFile = codeshipStepFile.replace(/{application-env}/g, params.applicationEnv.trim())
   codeshipStepFile = codeshipStepFile.replace(/{s3-bucket}/g, params.s3Bucket.trim())
+  codeshipStepFile = codeshipStepFile.replace(/{run-test-command}/g, params.testCommand.trim())
 
   dockerRunFile = dockerRunFile.replace(/{port}/g, params.containerPort.trim())
   makeDirectory('./deploy')
-  var writeProcess = []
+  let writeProcess = []
   writeProcess.push(writeFile('./deploy/aws_deployment', deployScriptFile))
   writeProcess.push(writeFile('./codeship-services.yml', codeshipServiceFile))
   writeProcess.push(writeFile('./codeship-steps.yml', codeshipStepFile))
