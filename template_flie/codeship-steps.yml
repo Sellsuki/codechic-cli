@@ -1,0 +1,17 @@
+- type: serial
+  name: continuous delivery
+  steps:
+    - name: push docker
+      type: push
+      service: app
+      registry: {aws-registry}
+      image_name: {aws-image-name}
+      image_tag: git_{{ .CommitID }}
+    - name: deploy doccker run
+      service: awsdeployment
+      type: serial
+      steps:
+      - name: create dockerrun script
+        command: deploy/aws_deployment
+      - name: push docker run to eb
+        command: codeship_aws eb_deploy deploy/dockerrun {application-name} {application-env} {s3-bucket}

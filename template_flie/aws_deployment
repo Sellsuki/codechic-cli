@@ -1,0 +1,13 @@
+#!/bin/bash
+
+cd deploy
+mkdir dockerrun
+cat Dockerrun.aws.json > dockerrun/Dockerrun.aws.json
+cd dockerrun
+
+# Replace the <AWS_ACCOUNT_ID> with the real AWS_ACCOUNT_ID
+sed -i='' "s/<AWS_ACCOUNT_ID>/${AWS_ACCOUNT_ID}/" Dockerrun.aws.json
+# Replace the <AWS_REGION> with the real AWS_REGION
+sed -i='' "s/<AWS_REGION>/${AWS_REGION}/" Dockerrun.aws.json
+# Replace the <TAG> with the real CI_COMMIT_ID
+sed -i='' "s/<CI_COMMIT_ID>/${CI_COMMIT_ID}/" Dockerrun.aws.json

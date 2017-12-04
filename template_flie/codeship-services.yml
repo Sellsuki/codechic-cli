@@ -1,0 +1,16 @@
+app:
+  build:
+    image: {aws-image-name}
+    dockerfile_path: ./Dockerfile
+  dockercfg_service: aws_generator
+aws_generator:
+  image: codeship/aws-ecr-dockercfg-generator
+  encrypted_env_file: ./deploy/{aws-key-encrypt-path} # contains Secret, AccessKey and Region
+  add_docker: true
+awsdeployment:
+  image: codeship/aws-deployment
+  encrypted_env_file: ./deploy/{aws-key-encrypt-path}
+  environment:
+    - AWS_DEFAULT_REGION={aws-region}
+  volumes:
+    - ./deploy:/deploy
