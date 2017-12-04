@@ -3,78 +3,30 @@
 const program = require('commander')
 const { prompt } = require('inquirer')
 // Require logic.js file and extract controller functions using JS destructuring assignment
-const { createInitFile } = require('./logic')
+const { createInitFile, createInitEnvFile } = require('./logic')
+const { initQuestions, initEnvQuestions } = require('./questions')
 
 program
   .version('0.0.1')
-  .description('Create init files to be deploy by Codeship pro.')
-
-const questions = [
-  {
-    type : 'input',
-    name : 'containerPort',
-    default: '80',
-    message : 'What is your docker container port : '
-  },
-  {
-    type : 'input',
-    name : 'awsRgistry',
-    message : 'What is your aws registry : '
-  },
-  {
-    type : 'input',
-    name : 'awsImageName',
-    message : 'What is your aws image name : '
-  },
-  {
-    type : 'input',
-    name : 'applicationName',
-    message : 'What is your eb application name :'
-  },
-  {
-    type : 'input',
-    name : 'applicationEnv',
-    message : 'What is your eb iapplication env :'
-  },
-  {
-    type : 'input',
-    name : 's3Bucket',
-    message : 'What is your s3 bucket :'
-  },
-  {
-    type : 'input',
-    name : 'awsKeyEncryptPath',
-    default: 'aws_credes.encrypted',
-    message : 'What is your aws encrypted key file path :'
-  },
-  {
-    type : 'input',
-    name : 'awsRegion',
-    default: 'ap-southeast-1',
-    message : 'What is your aws region :'
-  },
-  {
-    type : 'input',
-    name : 'awsRegion',
-    default: 'ap-southeast-1',
-    message : 'What is your aws region :'
-  },
-  {
-    type : 'input',
-    name : 'testCommand',
-    default: 'npm run test',
-    message : 'What is your test command :'
-  }
-]
+  .description('CLI for deployment with Codeship pro. by Sellsuki Team')
 
 program
 .command('init')
 .alias('i')
-.description('Create init files to be deploy by Codeship pro.')
+.description('Create initial files for deployment by Codeship pro.')
 .action(() => {
-  prompt(questions).then(answers =>
+  prompt(initQuestions).then(answers =>
     createInitFile(answers))
-});
+})
+
+program
+.command('init-env')
+.alias('ie')
+.description('Create initial files and environment for deployment by Codeship pro.')
+.action(() => {
+  prompt(initEnvQuestions).then(answers =>
+    createInitEnvFile(answers))
+})
 
 
 program.parse(process.argv)

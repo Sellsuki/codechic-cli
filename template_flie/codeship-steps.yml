@@ -1,20 +1,24 @@
-- type: serial
-  name: continuous delivery
+- name: App
+  type: serial
   steps:
-    - name: run test
-      type: serial
-      command: {run-test-command}
-    - name: push docker
-      type: push
-      service: app
-      registry: {aws-registry}
-      image_name: {aws-image-name}
-      image_tag: git_{{ .CommitID }}
-    - name: deploy doccker run
-      service: awsdeployment
-      type: serial
-      steps:
-      - name: create dockerrun script
-        command: deploy/aws_deployment
-      - name: push docker run to eb
-        command: codeship_aws eb_deploy deploy/dockerrun {application-name} {application-env} {s3-bucket}
+  - name: Continuous Integration
+    type: parallel
+    steps:
+      - name: Run test
+        service: app
+        command: {run-test-command}
+      - name: Push Docker image to ECR
+        type: push
+        service: app
+        registry: {aws-registry}
+        image_name: {aws-image-name}
+        image_tag: git_{{ .CommitID }}
+  - name: Continuous Deployment
+    service: awsdeployment
+    type: serial
+    steps:
+    - name: Create DockerRun by shell script
+      command: deploy/aws_deployment
+    - name: Push DockerRun to EB
+      tag: master
+      command: codeship_aws eb_deploy deploy/dockerrun {application-name} {application-env} {s3-bucket}
