@@ -1,4 +1,5 @@
-export const initQuestions = [
+
+const initQuestions = [
   {
     type : 'input',
     name : 'containerPort',
@@ -56,7 +57,7 @@ export const initQuestions = [
   }
 ]
 
-export const initEnvQuestions = [
+const initEnvQuestions = [
   {
     type : 'input',
     name : 'containerPort',
@@ -113,3 +114,8 @@ export const initEnvQuestions = [
     message : 'What is your test command :'
   }
 ]
+
+module.exports = {
+  initEnvQuestions,
+  initQuestions
+}

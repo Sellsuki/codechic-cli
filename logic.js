@@ -1,6 +1,6 @@
 const { readFile,writeFile,makeDirectory } = require('./util')
 
-export async function createInitFile (params) {
+async function createInitFile (params) {
   let deployScriptFile = readFile(__dirname + '/template_flie/aws_deployment')
   let codeshipServiceFile = readFile(__dirname + '/template_flie/codeship-services.yml')
   let codeshipStepFile = readFile(__dirname + '/template_flie/codeship-steps.yml')
@@ -34,7 +34,7 @@ export async function createInitFile (params) {
   console.log('File was generated please copy key file to deploy directory.')
 }
 
-export async function createInitEnvFile (params) {
+async function createInitEnvFile (params) {
   let deployScriptFile = readFile(__dirname + '/template_flie/aws_deployment')
   let codeshipServiceFile = readFile(__dirname + '/template_flie/codeship-services.yml')
   let codeshipStepFile = readFile(__dirname + '/template_flie/codeship-steps.yml')
@@ -66,4 +66,9 @@ export async function createInitEnvFile (params) {
   }
   console.log('Success!')
   console.log('File was generated please copy key file to deploy directory.')
+}
+
+module.exports = {
+  createInitFile,
+  createInitEnvFile
 }
