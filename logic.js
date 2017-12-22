@@ -5,6 +5,8 @@ async function createInitFile (params) {
   let codeshipServiceFile = readFile(__dirname + '/template_flie/codeship-services.yml')
   let codeshipStepFile = readFile(__dirname + '/template_flie/codeship-steps.yml')
   let dockerRunFile = readFile(__dirname + '/template_flie/Dockerrun.aws.json')
+  let awsImageName = params.awsImageName.trim().split('/')
+  awsImageName = awsImageName[awsImageName.length - 1]
 
   codeshipServiceFile = codeshipServiceFile.replace(/{aws-image-name}/g, params.awsImageName.trim())
   codeshipServiceFile = codeshipServiceFile.replace(/{aws-key-encrypt-path}/g, params.awsKeyEncryptPath.trim())
@@ -18,6 +20,7 @@ async function createInitFile (params) {
   codeshipStepFile = codeshipStepFile.replace(/{run-test-command}/g, params.testCommand.trim())
 
   dockerRunFile = dockerRunFile.replace(/{port}/g, params.containerPort.trim())
+  dockerRunFile = dockerRunFile.replace(/{image-name}/g, awsImageName)
   makeDirectory('./deploy')
   let writeProcess = []
   writeProcess.push(writeFile('./deploy/aws_deployment', deployScriptFile))
@@ -39,6 +42,8 @@ async function createInitEnvFile (params) {
   let codeshipServiceFile = readFile(__dirname + '/template_flie/codeship-services.yml')
   let codeshipStepFile = readFile(__dirname + '/template_flie/codeship-steps.yml')
   let dockerRunFile = readFile(__dirname + '/template_flie/Dockerrun.aws.json')
+  let awsImageName = params.awsImageName.trim().split('/')
+  awsImageName = awsImageName[awsImageName.length - 1]
 
   codeshipServiceFile = codeshipServiceFile.replace(/{aws-image-name}/g, params.awsImageName.trim())
   codeshipServiceFile = codeshipServiceFile.replace(/{aws-key-encrypt-path}/g, params.awsKeyEncryptPath.trim())
@@ -52,6 +57,7 @@ async function createInitEnvFile (params) {
   codeshipStepFile = codeshipStepFile.replace(/{run-test-command}/g, params.testCommand.trim())
 
   dockerRunFile = dockerRunFile.replace(/{port}/g, params.containerPort.trim())
+  dockerRunFile = dockerRunFile.replace(/{image-name}/g, awsImageName)
   makeDirectory('./deploy')
   let writeProcess = []
   writeProcess.push(writeFile('./deploy/aws_deployment', deployScriptFile))
