@@ -1,7 +1,7 @@
 {
   "AWSEBDockerrunVersion": "1",
   "Image": {
-    "Name": "<AWS_ACCOUNT_ID>.dkr.ecr.<AWS_REGION>.amazonaws.com/adam-ecr-staging:git_<CI_COMMIT_ID>",
+    "Name": "<AWS_ACCOUNT_ID>.dkr.ecr.<AWS_REGION>.amazonaws.com/{image-name}:git_<CI_COMMIT_ID>",
     "Update": "true"
   },
   "Ports": [

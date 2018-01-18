@@ -1,10 +1,12 @@
 const { readFile,writeFile,makeDirectory } = require('./util')
 
-export async function createInitFile (params) {
+async function createInitFile (params) {
   let deployScriptFile = readFile(__dirname + '/template_flie/aws_deployment')
   let codeshipServiceFile = readFile(__dirname + '/template_flie/codeship-services.yml')
   let codeshipStepFile = readFile(__dirname + '/template_flie/codeship-steps.yml')
   let dockerRunFile = readFile(__dirname + '/template_flie/Dockerrun.aws.json')
+  let awsImageName = params.awsImageName.trim().split('/')
+  awsImageName = awsImageName[awsImageName.length - 1]
 
   codeshipServiceFile = codeshipServiceFile.replace(/{aws-image-name}/g, params.awsImageName.trim())
   codeshipServiceFile = codeshipServiceFile.replace(/{aws-key-encrypt-path}/g, params.awsKeyEncryptPath.trim())
@@ -18,6 +20,7 @@ export async function createInitFile (params) {
   codeshipStepFile = codeshipStepFile.replace(/{run-test-command}/g, params.testCommand.trim())
 
   dockerRunFile = dockerRunFile.replace(/{port}/g, params.containerPort.trim())
+  dockerRunFile = dockerRunFile.replace(/{image-name}/g, awsImageName)
   makeDirectory('./deploy')
   let writeProcess = []
   writeProcess.push(writeFile('./deploy/aws_deployment', deployScriptFile))
@@ -34,11 +37,13 @@ export async function createInitFile (params) {
   console.log('File was generated please copy key file to deploy directory.')
 }
 
-export async function createInitEnvFile (params) {
+async function createInitEnvFile (params) {
   let deployScriptFile = readFile(__dirname + '/template_flie/aws_deployment')
   let codeshipServiceFile = readFile(__dirname + '/template_flie/codeship-services.yml')
   let codeshipStepFile = readFile(__dirname + '/template_flie/codeship-steps.yml')
   let dockerRunFile = readFile(__dirname + '/template_flie/Dockerrun.aws.json')
+  let awsImageName = params.awsImageName.trim().split('/')
+  awsImageName = awsImageName[awsImageName.length - 1]
 
   codeshipServiceFile = codeshipServiceFile.replace(/{aws-image-name}/g, params.awsImageName.trim())
   codeshipServiceFile = codeshipServiceFile.replace(/{aws-key-encrypt-path}/g, params.awsKeyEncryptPath.trim())
@@ -52,6 +57,7 @@ export async function createInitEnvFile (params) {
   codeshipStepFile = codeshipStepFile.replace(/{run-test-command}/g, params.testCommand.trim())
 
   dockerRunFile = dockerRunFile.replace(/{port}/g, params.containerPort.trim())
+  dockerRunFile = dockerRunFile.replace(/{image-name}/g, awsImageName)
   makeDirectory('./deploy')
   let writeProcess = []
   writeProcess.push(writeFile('./deploy/aws_deployment', deployScriptFile))
@@ -66,4 +72,9 @@ export async function createInitEnvFile (params) {
   }
   console.log('Success!')
   console.log('File was generated please copy key file to deploy directory.')
+}
+
+module.exports = {
+  createInitFile,
+  createInitEnvFile
 }
