@@ -5,7 +5,6 @@ const { prompt } = require('inquirer')
 // Require logic.js file and extract controller functions using JS destructuring assignment
 const { createInitFile, createInitEnvFile } = require('./logic')
 const { initQuestions, initEnvQuestions } = require('./questions')
-console.log(initQuestions)
 program
   .version('0.0.1')
   .description('CLI for deployment with Codeship pro. by Sellsuki Team')
