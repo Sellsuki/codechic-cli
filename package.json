@@ -12,6 +12,7 @@
   "description": "",
   "dependencies": {
     "commander": "^2.12.2",
-    "inquirer": "^4.0.1"
+    "inquirer": "^4.0.1",
+    "log-horizon": "^0.1.0"
   }
 }
