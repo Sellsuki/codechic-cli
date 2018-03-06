@@ -24,7 +24,7 @@ const initQuestions = [
   {
     type : 'input',
     name : 'applicationEnv',
-    message : 'What is your eb iapplication env :'
+    message : 'What is your eb application env :'
   },
   {
     type : 'input',
@@ -36,12 +36,6 @@ const initQuestions = [
     name : 'awsKeyEncryptPath',
     default: 'aws_credes.encrypted',
     message : 'What is your aws encrypted key file path :'
-  },
-  {
-    type : 'input',
-    name : 'awsRegion',
-    default: 'ap-southeast-1',
-    message : 'What is your aws region :'
   },
   {
     type : 'input',
