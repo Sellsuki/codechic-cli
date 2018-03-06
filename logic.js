@@ -36,12 +36,7 @@ async function createInitFile (params) {
     logger.error(e)
   }
 
-  const encrypted = await encryptWithCheckJet(params.awsKeyEncryptPath.trim())
-  if (encrypted) {
-    logger.success('File was generated.')
-  } else {
-    logger.success('File was generated please copy key file to deploy directory.')
-  }
+  logger.success('File was generated please copy key file to deploy directory.')
 }
 
 async function createInitEnvFile (params) {
@@ -78,12 +73,7 @@ async function createInitEnvFile (params) {
     logger.error(e)
   }
 
-  const encrypted = await encryptWithCheckJet(params.awsKeyEncryptPath.trim())
-  if (encrypted) {
-    logger.success('File was generated.')
-  } else {
-    logger.success('File was generated please copy key file to deploy directory.')
-  }
+  logger.success('File was generated please copy key file to deploy directory.')
 }
 
 module.exports = {

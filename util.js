@@ -52,10 +52,10 @@ function checkJetCLI (logSuccess = true) {
   })
 }
 
-async function encryptWithCheckJet(filename) {
+async function encryptWithCheckJet(filename = 'aws_credes.encrypted') {
   const jetChecked = await checkJetCLI(false)
   if(jetChecked) {
-    encrypt = await encryptDefault(`deploy/${filename}`, false)
+    encrypt = await encryptDefault(`${filename}`, false)
     return Promise.resolve(encrypt)
   }
   return Promise.resolve(false)
