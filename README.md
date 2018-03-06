@@ -61,14 +61,15 @@ CLI for setup continuous integration and continuous deployment docker with Codes
   - Fill your information on console.
 
     ```
-    1. docker port
+    1. Docker port
     2. AWS registry url
-    3. Image name on AWS registry
+    3. Image name
     4. EB application name
     5. EB environment name
     6. S3 bucket
     7. Your encrypted file
     8. AWS region
+    9. Your test command
     ```
     <img src="./static/img/console.png">
   
