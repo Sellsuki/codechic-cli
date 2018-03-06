@@ -5,6 +5,8 @@ const { prompt } = require('inquirer')
 // Require logic.js file and extract controller functions using JS destructuring assignment
 const { createInitFile, createInitEnvFile } = require('./logic')
 const { initQuestions, initEnvQuestions } = require('./questions')
+const { encryptWithCheckJet, checkJetCLI } = require('./util.js')
+
 program
   .version('0.0.1')
   .description('CLI for deployment with Codeship pro. by Sellsuki Team')
@@ -26,6 +28,20 @@ program
   prompt(initEnvQuestions).then(answers =>
     createInitEnvFile(answers))
 })
+
+program
+  .command('check-jet')
+  .description('Check installation of jet-cli')
+  .action(() => {
+    checkJetCLI()
+  })
+
+program
+  .command('encrypt')
+  .description('Encrypt with default file [`codeship.aes` and `env`]')
+  .action(() => {
+    encryptWithCheckJet()
+  })
 
 
 program.parse(process.argv)

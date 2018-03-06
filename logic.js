@@ -1,4 +1,6 @@
-const { readFile,writeFile,makeDirectory } = require('./util')
+const { readFile,writeFile,makeDirectory, encryptWithCheckJet } = require('./util')
+const LogHorizon = require('log-horizon')
+const logger = new LogHorizon({statusType:'badge'})
 
 async function createInitFile (params) {
   let deployScriptFile = readFile(__dirname + '/template_flie/aws_deployment')
@@ -30,11 +32,11 @@ async function createInitFile (params) {
   try {
     await Promise.all(writeProcess)
   } catch(e) {
-    console.log('Something went wrong!')
-    console.log(e)
+    logger.error('Something went wrong!')
+    logger.error(e)
   }
-  console.log('Success!')
-  console.log('File was generated please copy key file to deploy directory.')
+
+  logger.success('File was generated please copy key file to deploy directory.')
 }
 
 async function createInitEnvFile (params) {
@@ -67,11 +69,11 @@ async function createInitEnvFile (params) {
   try {
     await Promise.all(writeProcess)
   } catch(e) {
-    console.log('Something went wrong!')
-    console.log(e)
+    logger.error('Something went wrong!')
+    logger.error(e)
   }
-  console.log('Success!')
-  console.log('File was generated please copy key file to deploy directory.')
+
+  logger.success('File was generated please copy key file to deploy directory.')
 }
 
 module.exports = {
