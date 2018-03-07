@@ -71,7 +71,7 @@ CLI for setup continuous integration and continuous deployment docker with Codes
     8. AWS region
     9. Your test command
     ```
-    <img src="./static/img/console.png">
+    <img src="./static/img/example.png">
   
   - You will receive file & directory for deployment.
 
