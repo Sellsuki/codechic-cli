@@ -10,11 +10,11 @@ async function createInitFile (params) {
   let awsImageName = params.awsImageName.trim().split('/')
   awsImageName = awsImageName[awsImageName.length - 1]
 
-  codeshipServiceFile = codeshipServiceFile.replace(/{aws-image-name}/g, params.awsImageName.trim())
+  codeshipServiceFile = codeshipServiceFile.replace(/{aws-image-name}/g, params.awsRgistry.trim() + '/' + params.awsImageName.trim())
   codeshipServiceFile = codeshipServiceFile.replace(/{aws-key-encrypt-path}/g, params.awsKeyEncryptPath.trim())
   codeshipServiceFile = codeshipServiceFile.replace(/{aws-region}/g, params.awsRegion.trim())
 
-  codeshipStepFile = codeshipStepFile.replace(/{aws-image-name}/g, params.awsImageName.trim())
+  codeshipStepFile = codeshipStepFile.replace(/{aws-image-name}/g, params.awsRgistry.trim() + '/' + params.awsImageName.trim())
   codeshipStepFile = codeshipStepFile.replace(/{aws-registry}/g, params.awsRgistry.trim())
   codeshipStepFile = codeshipStepFile.replace(/{application-name}/g, params.applicationName.trim())
   codeshipStepFile = codeshipStepFile.replace(/{application-env}/g, params.applicationEnv.trim())
@@ -47,11 +47,11 @@ async function createInitEnvFile (params) {
   let awsImageName = params.awsImageName.trim().split('/')
   awsImageName = awsImageName[awsImageName.length - 1]
 
-  codeshipServiceFile = codeshipServiceFile.replace(/{aws-image-name}/g, params.awsImageName.trim())
+  codeshipServiceFile = codeshipServiceFile.replace(/{aws-image-name}/g, params.awsRgistry.trim() + '/' + params.awsImageName.trim())
   codeshipServiceFile = codeshipServiceFile.replace(/{aws-key-encrypt-path}/g, params.awsKeyEncryptPath.trim())
   codeshipServiceFile = codeshipServiceFile.replace(/{aws-region}/g, params.awsRegion.trim())
 
-  codeshipStepFile = codeshipStepFile.replace(/{aws-image-name}/g, params.awsImageName.trim())
+  codeshipStepFile = codeshipStepFile.replace(/{aws-image-name}/g, params.awsRgistry.trim() + '/' + params.awsImageName.trim())
   codeshipStepFile = codeshipStepFile.replace(/{aws-registry}/g, params.awsRgistry.trim())
   codeshipStepFile = codeshipStepFile.replace(/{application-name}/g, params.applicationName.trim())
   codeshipStepFile = codeshipStepFile.replace(/{application-env}/g, params.applicationEnv.trim())

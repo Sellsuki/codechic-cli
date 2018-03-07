@@ -50,7 +50,7 @@ CLI for setup continuous integration and continuous deployment docker with Codes
 
     // Example:
 
-    $jet encrypt env env.encrypted
+    $jet encrypt env aws_credes.encrypted
     ```
 ## 2. Use `codechic` CLI
   - Run this command :
