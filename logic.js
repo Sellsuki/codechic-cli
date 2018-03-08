@@ -61,7 +61,12 @@ async function createInitEnvFile (params) {
   codeshipStepFile = codeshipStepFile.replace(/{application-name}/g, params.applicationName.trim())
   codeshipStepFile = codeshipStepFile.replace(/{application-env}/g, params.applicationEnv.trim())
   codeshipStepFile = codeshipStepFile.replace(/{s3-bucket}/g, params.s3Bucket.trim())
-  codeshipStepFile = codeshipStepFile.replace(/{run-test-command}/g, params.testCommand.trim())
+  if (params.isHaveTestCommand) {
+    const testStep = `- name: Run test \n        service: app \n        command: ${params.testCommand.trim()}`
+    codeshipStepFile = codeshipStepFile.replace(/{run-test-command}/g, testStep)
+  } else {
+    codeshipStepFile = codeshipStepFile.replace(/\n      {run-test-command}/g, '')
+  }
 
   dockerRunFile = dockerRunFile.replace(/{port}/g, params.containerPort.trim())
   dockerRunFile = dockerRunFile.replace(/{image-name}/g, awsImageName)
