@@ -44,10 +44,18 @@ const initQuestions = [
     message : 'What is your aws region :'
   },
   {
+    type : 'confirm',
+    name : 'isHaveTestCommand',
+    message : 'Do you have test command ?'
+  },
+  {
     type : 'input',
     name : 'testCommand',
     default: 'npm run test',
-    message : 'What is your test command :'
+    message : 'What is your test command :',
+    when: function (answers) {
+      return answers.isHaveTestCommand
+    }
   }
 ]
 
