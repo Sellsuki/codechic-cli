@@ -30,7 +30,7 @@ CLI for setup continuous integration and continuous deployment docker with Codes
 # How to use
 
 ## 1. Encrypt your AWS credential
-  - Step first you must create `env` file (in anywhere) with 
+  - Step first you must create `env` file (in anywhere) with
   [Jet CLI](https://documentation.codeship.com/pro/builds-and-configuration/cli/) .
 
     Example: env
@@ -69,10 +69,11 @@ CLI for setup continuous integration and continuous deployment docker with Codes
     6. S3 bucket
     7. Your encrypted file
     8. AWS region
-    9. Your test command
+    9. Do you have test command ? (y/N)
+    10. Your test command (optional)
     ```
-    <img src="./static/img/example.png">
-  
+    <img src="./static/img/example-console.png">
+
   - You will receive file & directory for deployment.
 
     <img src="./static/img/directory.png">
@@ -83,7 +84,7 @@ CLI for setup continuous integration and continuous deployment docker with Codes
 ```
 ./deploy/${YOUR_FILE}
 ```
-## 5. Push your code !! 
+## 5. Push your code !!
 ## ⚠️ ️ BEWARE !!!
   <span style="color:red">
     - Don't push your codeship.aes and your AWS credential file to git.

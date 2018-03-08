@@ -4,3 +4,4 @@ env
 codeship.aes
 codeship-steps.yml
 codeship-services.yml
+npm-debug.log
