@@ -4,9 +4,7 @@
   - name: Continuous Integration
     type: parallel
     steps:
-      - name: Run test
-        service: app
-        command: {run-test-command}
+      {run-test-command}
       - name: Push Docker image to ECR
         type: push
         service: app
