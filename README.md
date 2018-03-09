@@ -89,5 +89,10 @@ CLI for setup continuous integration and continuous deployment docker with Codes
   <span style="color:red">
     - Don't push your codeship.aes and your AWS credential file to git.
   </span>
+
+## License
+
+[MIT](LICENSE)
+
 <br><br><br>
 Developed with ❤️ and ☕️
