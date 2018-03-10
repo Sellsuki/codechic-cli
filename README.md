@@ -1,15 +1,15 @@
-<center>
-  <h1>CodeChic CLI</h1>
-  <p align="center">
-    <a href="https://npmjs.com/package/codechic"><img src="https://img.shields.io/npm/v/codechic.svg?style=flat" alt="NPM version"></a>
-    <a href="https://npmjs.com/package/codechic"><img src="https://img.shields.io/npm/dm/codechic.svg?style=flat" alt="NPM downloads"></a>
-    <a href="https://travis-ci.org/Sellsuki/codechic-cli"><img src="https://travis-ci.org/Sellsuki/codechic-cli.svg?branch=master" alt="CircleCI"></a>
-  </p>
-</center>
+# CodeChic CLI
+### Easy way for deploy your docker image to Amazon Elastic Beanstalk with Codeship Pro
 <img src="https://raw.githubusercontent.com/Sellsuki/codechic-cli/master/static/img/header.png">
 
+<p align="center">
+  <a href="https://npmjs.com/package/codechic"><img src="https://img.shields.io/npm/v/codechic.svg?style=flat" alt="NPM version"></a>
+  <a href="https://npmjs.com/package/codechic"><img src="https://img.shields.io/npm/dm/codechic.svg?style=flat" alt="NPM downloads"></a>
+  <a href="https://travis-ci.org/Sellsuki/codechic-cli"><img src="https://travis-ci.org/Sellsuki/codechic-cli.svg?branch=master" alt="CircleCI"></a>
+</p>
+
 # codechic-cli
-CLI for setup continuous integration and continuous deployment docker with Codeship Pro to AWS service
+Easy way for deploy your docker image to Amazon Elastic Beanstalk with Codeship Pro
 ## Requirement
   - AWS ACCOUNT ID
   - AWS ACCESS KEY ID
