@@ -75,7 +75,7 @@ npm install codechic -g
     9. Do you have test command ? (y/N)
     10. Your test command (optional)
     ```
-    <img src="https://raw.githubusercontent.com/Sellsuki/codechic-cli/master/static/img/example-console.png">
+    <img src="https://raw.githubusercontent.com/Sellsuki/codechic-cli/master/static/img/example.png">
 
   - You will receive file & directory for deployment.
 
