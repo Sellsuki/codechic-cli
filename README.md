@@ -1,7 +1,12 @@
 <center>
   <h1>CodeChic CLI</h1>
+  <p align="center">
+    <a href="https://npmjs.com/package/codechic"><img src="https://img.shields.io/npm/v/codechic.svg?style=flat" alt="NPM version"></a>
+    <a href="https://npmjs.com/package/codechic"><img src="https://img.shields.io/npm/dm/codechic.svg?style=flat" alt="NPM downloads"></a>
+    <a href="https://travis-ci.org/Sellsuki/codechic-cli"><img src="https://travis-ci.org/Sellsuki/codechic-cli.svg?branch=master" alt="CircleCI"></a>
+  </p>
 </center>
-<img src="./static/img/header.png">
+<img src="https://raw.githubusercontent.com/Sellsuki/codechic-cli/master/static/img/header.png">
 
 # codechic-cli
 CLI for setup continuous integration and continuous deployment docker with Codeship Pro to AWS service
@@ -18,14 +23,12 @@ CLI for setup continuous integration and continuous deployment docker with Codes
   - npm
 ## Installation
 ```
-  $git clone https://github.com/Sellsuki/deploy-cli.git
-  $cd codechic-cli
-  $npm link
+  npm install codechic -g
 ```
 
 ## Process of Codeship Pro deploy your docker image to EB
 
-<img src="./static/img/process.png">
+<img src="https://raw.githubusercontent.com/Sellsuki/codechic-cli/master/static/img/process.png">
 
 # How to use
 
@@ -72,11 +75,11 @@ CLI for setup continuous integration and continuous deployment docker with Codes
     9. Do you have test command ? (y/N)
     10. Your test command (optional)
     ```
-    <img src="./static/img/example-console.png">
+    <img src="https://raw.githubusercontent.com/Sellsuki/codechic-cli/master/static/img/example-console.png">
 
   - You will receive file & directory for deployment.
 
-    <img src="./static/img/directory.png">
+    <img src="https://raw.githubusercontent.com/Sellsuki/codechic-cli/master/static/img/directory.png">
 
 ## 3. Create your Dockerfile
   - Move your DockerFile to your repository.
