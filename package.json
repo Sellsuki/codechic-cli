@@ -2,7 +2,7 @@
   "name": "codechic",
   "preferGlobal": true,
   "bin": "./index.js",
-  "version": "1.0",
+  "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "test": "rm -rf ./deploy && rm -rf ./codeship-steps.yml && rm -rf ./codeship-services.yml && codechic init",
