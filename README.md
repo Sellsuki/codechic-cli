@@ -23,7 +23,7 @@ CLI for setup continuous integration and continuous deployment docker with Codes
   - npm
 ## Installation
 ```
-  npm install codechic -g
+npm install codechic -g
 ```
 
 ## Process of Codeship Pro deploy your docker image to EB
@@ -97,5 +97,4 @@ CLI for setup continuous integration and continuous deployment docker with Codes
 
 [MIT](LICENSE)
 
-<br><br><br>
 Developed with ❤️ and ☕️
