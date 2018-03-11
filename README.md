@@ -87,6 +87,17 @@ npm install codechic -g
 ```
 ./deploy/${YOUR_FILE}
 ```
+  File structure
+  ```
+  - my-project
+    -/deploy
+      -aws_deployment
+      -Dockerrun.aws.json
+      -aws_credes.encrypted
+    -codeship-services.yml
+    -codeship-steps.yml
+    -Dockerfile
+  ```
 ## 5. Push your code !!
 ## ⚠️ ️ BEWARE !!!
   <span style="color:red">
