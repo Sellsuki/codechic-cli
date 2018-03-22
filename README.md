@@ -45,7 +45,7 @@ npm install codechic -g
   - Download [Codeship AES Key](https://documentation.codeship.com/pro/builds-and-configuration/environment-variables/#downloading-your-aes-key)
   - Install `jet` CLI. [(Installing The Jet CLI)](https://documentation.codeship.com/pro/jet-cli/installation/)
   - Just encrypt file `env` with `jet` CLI. 
-  [See More](https://documentation.codeship.com/pro/builds-and-configuration/cli/) 
+  [See More](https://documentation.codeship.com/pro/jet-cli/encrypt/) 
     ```
     // Command:
 
