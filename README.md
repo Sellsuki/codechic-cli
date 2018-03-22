@@ -33,8 +33,7 @@ npm install codechic -g
 # How to use
 
 ## 1. Encrypt your AWS credential
-  - Step first you must create `env` file (in anywhere) with
-  [Jet CLI](https://documentation.codeship.com/pro/builds-and-configuration/cli/) .
+  - Step first you must create `env` file (in anywhere).
 
     Example: env
     ```
@@ -45,7 +44,8 @@ npm install codechic -g
     ```
   - Download [Codeship AES Key](https://documentation.codeship.com/pro/builds-and-configuration/environment-variables/#downloading-your-aes-key)
   - Install `jet` CLI. [(Installing The Jet CLI)](https://documentation.codeship.com/pro/jet-cli/installation/)
-  - Just encrypt file `env` with `jet` CLI.
+  - Just encrypt file `env` with `jet` CLI. 
+  [See More](https://documentation.codeship.com/pro/builds-and-configuration/cli/) 
     ```
     // Command:
 
